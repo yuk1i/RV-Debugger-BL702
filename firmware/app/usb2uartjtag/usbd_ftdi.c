@@ -143,7 +143,8 @@ static int ftdi_vendor_request_handler(struct usb_setup_packet *pSetup,uint8_t *
 			ftdi_set_baudrate(pSetup->wValue|(baudrate_high<<16),&actual_baudrate);	
 			if(actual_baudrate != 1200)
 			{
-				usbd_ftdi_set_line_coding(actual_baudrate, 8, 0, 0);
+				usbd_ftdi_set_line_coding(actual_baudrate, 8, 0, 1);
+				led_toggle(0);
 			}
 			break;	
 		}
@@ -158,6 +159,7 @@ static int ftdi_vendor_request_handler(struct usb_setup_packet *pSetup,uint8_t *
 			{
 				//USBD_LOG("CDC_SET_LINE_CODING <%d %d %s %s>\r\n",actual_baudrate,(uint8_t)pSetup->wValue,parity_name[(uint8_t)(pSetup->wValue>>8)],stop_name[(uint8_t)(pSetup->wValue>>11)]);
 				usbd_ftdi_set_line_coding(actual_baudrate,(uint8_t)pSetup->wValue,(uint8_t)(pSetup->wValue>>8),(uint8_t)(pSetup->wValue>>11));
+				led_toggle(1);
 			}
 			break;
 
