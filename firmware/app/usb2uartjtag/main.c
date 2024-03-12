@@ -300,7 +300,7 @@ int main(void)
     uart1_rts_init();
     led_gpio_init();
 	led_set(0, 1);	//led0 for RX/TX indication
-	led_set(1, 1);	//led1 for Power indication
+	led_set(1, 0);	//led1 for Power indication
     jtag_ringbuffer_init();
     jtag_gpio_init();
     EF_Ctrl_Read_Chip_ID(chipid);

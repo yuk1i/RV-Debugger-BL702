@@ -48,6 +48,7 @@ Ring_Buffer_Type uart1_rx_rb;
 
 void uart_irq_callback(struct device *dev, void *args, uint32_t size,
                        uint32_t state) {
+      led_toggle(0);
   if (state == UART_EVENT_RX_FIFO) {
     if (size && size < Ring_Buffer_Get_Empty_Length(&uart1_rx_rb)) {
       Ring_Buffer_Write(&uart1_rx_rb, (uint8_t *)args, size);
@@ -71,7 +72,7 @@ void uart1_init(void) {
   if (uart1) {
     device_open(
         uart1, DEVICE_OFLAG_DMA_TX | DEVICE_OFLAG_INT_RX);  // uart0 tx dma mode
-    device_control(uart1, DEVICE_CTRL_SUSPEND, NULL);
+    // device_control(uart1, DEVICE_CTRL_SUSPEND, NULL);
     device_set_callback(uart1, uart_irq_callback);
     device_control(uart1, DEVICE_CTRL_SET_INT,
                    (void *)(UART_RX_FIFO_IT | UART_RTO_IT));
@@ -85,6 +86,8 @@ void uart1_init(void) {
     // device_control(dma_ch2, DEVICE_CTRL_SET_INT, NULL);
   }
   // device_control(uart1, DEVICE_CTRL_ATTACH_TX_DMA, dma_ch2);
+  
+  uart1_config(115200, 8, 0, 1); // 115200, 8n1
 }
 
 void uart1_config(uint32_t baudrate, uart_databits_t databits,

@@ -285,6 +285,7 @@ static int usb_dc_ftdi_send_from_ringbuffer(struct device *dev,
 
 static void uart_irq_callback(struct device *dev, void *args, uint32_t size,
                               uint32_t state) {
+  led_toggle(0);
   uint8_t _idx = UART_DEV(dev)->id;
   switch (state) {
     case UART_EVENT_RX_FIFO:
