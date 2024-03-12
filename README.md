@@ -10,6 +10,45 @@ The firmware emulate an [FT2232D](https://ftdichip.com/products/ft2232d/) device
 
 Community Forum:  bbs.sipeed.com
 
+
+# Yuki's Notes:
+
+See https://github.com/sipeed/RV-Debugger-BL702/issues/14
+
+这个仓库里面的 usb2uartjtag 已经patch过了
+
+编译固件:
+
+```bash
+cd firmware/bl_mcu_sdk
+make BOARD=bl702_debugger APP_DIR=../app APP=usb2uartjtag
+```
+
+烧录：
+
+短接排线上的DTR和3.3V，等效于按住boot按钮，插入电脑
+
+`dmesg -w` 应该能看到：
+
+```
+[  603.377888] usb 7-1: new full-speed USB device number 26 using xhci_hcd
+[  603.552130] usb 7-1: New USB device found, idVendor=ffff, idProduct=ffff, bcdDevice= 2.00
+[  603.552146] usb 7-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  603.552153] usb 7-1: Product: CDC Virtual ComPort
+[  603.552158] usb 7-1: Manufacturer: BLIOT
+[  603.552162] usb 7-1: SerialNumber: 000000020000
+[  603.578400] cdc_acm 7-1:1.0: ttyACM0: USB ACM device
+```
+
+使用破烂闭源工具烧录：
+
+```
+./tools/bflb_flash_tool/bflb_mcu_tool --chipname=bl702 --port /dev/ttyACM0 --xtal=32M --firmware=out/app/usb2uartjtag/usb2uartjtag_bl702.bin
+```
+
+傻逼 Sipeed 的破烂东西
+
+
 # Hardware
 ## Offical Board
 
