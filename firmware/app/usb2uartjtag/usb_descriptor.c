@@ -173,36 +173,36 @@ uint8_t cdc_descriptor[] =
     'T', 0x00,                  /* wcChar1 */
     'A', 0x00,                  /* wcChar2 */
     'G', 0x00,                  /* wcChar3 */
-    ' ', 0x00,                  /* wcChar4 */
-    'D', 0x00,                  /* wcChar5 */
-    'e', 0x00,                  /* wcChar6 */
-    'b', 0x00,                  /* wcChar7 */
-    'u', 0x00,                  /* wcChar8 */
-    'g', 0x00,                  /* wcChar9 */
-    'g', 0x00,                  /* wcChar10 */
-    'e', 0x00,                  /* wcChar11 */
-    'r', 0x00,                  /* wcChar12 */
+    '+', 0x00,                  /* wcChar4 */
+    'U', 0x00,                  /* wcChar5 */
+    'A', 0x00,                  /* wcChar6 */
+    'R', 0x00,                  /* wcChar7 */
+    'T', 0x00,                  /* wcChar8 */
+    ' ', 0x00,                  /* wcChar9 */
+    ' ', 0x00,                  /* wcChar10 */
+    ' ', 0x00,                  /* wcChar11 */
+    ' ', 0x00,                  /* wcChar12 */
     ///////////////////////////////////////
     /// string3 descriptor
     ///////////////////////////////////////
     0x30,                       /* bLength */
     USB_DESCRIPTOR_TYPE_STRING, /* bDescriptorType */
-    'F', 0x00,                  /* wcChar0 */
-    'a', 0x00,                  /* wcChar1 */
-    'c', 0x00,                  /* wcChar2 */
-    't', 0x00,                  /* wcChar3 */
-    'o', 0x00,                  /* wcChar4 */
-    'r', 0x00,                  /* wcChar5 */
-    'y', 0x00,                  /* wcChar6 */
-    'A', 0x00,                  /* wcChar7 */
-    'I', 0x00,                  /* wcChar8 */
-    'O', 0x00,                  /* wcChar9 */
-    'T', 0x00,                  /* wcChar10 */
-    ' ', 0x00,                  /* wcChar11 */
-    'P', 0x00,                  /* wcChar12 */
-    'r', 0x00,                  /* wcChar13 */
-    'o', 0x00,                  /* wcChar14 */
-    'g', 0x00,                  /* wcChar15 */
+    'S', 0x00,                  /* wcChar0 */
+    'U', 0x00,                  /* wcChar1 */
+    'S', 0x00,                  /* wcChar2 */
+    'T', 0x00,                  /* wcChar3 */
+    'e', 0x00,                  /* wcChar4 */
+    'c', 0x00,                  /* wcChar5 */
+    'h', 0x00,                  /* wcChar6 */
+    'E', 0x00,                  /* wcChar7 */
+    'd', 0x00,                  /* wcChar8 */
+    'i', 0x00,                  /* wcChar9 */
+    't', 0x00,                  /* wcChar10 */
+    'i', 0x00,                  /* wcChar11 */
+    'o', 0x00,                  /* wcChar12 */
+    'n', 0x00,                  /* wcChar13 */
+    ' ', 0x00,                  /* wcChar14 */
+    ' ', 0x00,                  /* wcChar15 */
     ' ', 0x00,                  /* wcChar16 */
     'S', 0x00,                  /* wcChar17 */
     'e', 0x00,                  /* wcChar18 */
