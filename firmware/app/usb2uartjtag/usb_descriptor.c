@@ -191,16 +191,16 @@ uint8_t cdc_descriptor[] =
     'U', 0x00,                  /* wcChar1 */
     'S', 0x00,                  /* wcChar2 */
     'T', 0x00,                  /* wcChar3 */
-    'e', 0x00,                  /* wcChar4 */
-    'c', 0x00,                  /* wcChar5 */
-    'h', 0x00,                  /* wcChar6 */
-    'E', 0x00,                  /* wcChar7 */
-    'd', 0x00,                  /* wcChar8 */
-    'i', 0x00,                  /* wcChar9 */
-    't', 0x00,                  /* wcChar10 */
-    'i', 0x00,                  /* wcChar11 */
-    'o', 0x00,                  /* wcChar12 */
-    'n', 0x00,                  /* wcChar13 */
+    'C', 0x00,                  /* wcChar4 */
+    '-', 0x00,                  /* wcChar5 */
+    '8', 0x00,                  /* wcChar6 */
+    'a', 0x00,                  /* wcChar7 */
+    '7', 0x00,                  /* wcChar8 */
+    '6', 0x00,                  /* wcChar9 */
+    'a', 0x00,                  /* wcChar10 */
+    '2', 0x00,                  /* wcChar11 */
+    '2', 0x00,                  /* wcChar12 */
+    '1', 0x00,                  /* wcChar13 */
     ' ', 0x00,                  /* wcChar14 */
     ' ', 0x00,                  /* wcChar15 */
     ' ', 0x00,                  /* wcChar16 */
