@@ -24,30 +24,43 @@ cd firmware/bl_mcu_sdk
 make BOARD=bl702_debugger APP_DIR=../app APP=usb2uartjtag
 ```
 
+编译好的固件： https://github.com/yuk1i/RV-Debugger-BL702/releases/tag/v1.0
+
+```shell
+$ sha256sum usb2uartjtag_bl702.bin
+3c28389c44e00ec7741f0f324e0832dec6ee216a63d184d17214afd83e6a09aa  usb2uartjtag_bl702.bin
+```
+
+如果正确烧录，插入电脑后可以看到：usb的 iSerial 有 SUSTC 的标签
+
+```shell
+$ lsusb -v -d 0403:6010
+
+Bus 001 Device 085: ID 0403:6010 Future Technology Devices International, Ltd FT2232C/D/H Dual UART/FIFO IC
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               2.00
+  bDeviceClass            0 [unknown]
+  bDeviceSubClass         0 [unknown]
+  bDeviceProtocol         0 
+  bMaxPacketSize0        64
+  idVendor           0x0403 Future Technology Devices International, Ltd
+  idProduct          0x6010 FT2232C/D/H Dual UART/FIFO IC
+  bcdDevice            5.00
+  iManufacturer           1 SIPEED
+  iProduct                2 JTAG+UART    
+  iSerial                 3 SUSTC-8a76a221 
+  bNumConfigurations      1
+```
+
 烧录：
 
-短接排线上的DTR和3.3V，等效于按住boot按钮，插入电脑
+**用 Windows 刷**
 
-`dmesg -w` 应该能看到：
+https://bouffalolab.gitee.io/bl_mcu_sdk/get_started/bl_dev_cube.html
 
-```
-[  603.377888] usb 7-1: new full-speed USB device number 26 using xhci_hcd
-[  603.552130] usb 7-1: New USB device found, idVendor=ffff, idProduct=ffff, bcdDevice= 2.00
-[  603.552146] usb 7-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[  603.552153] usb 7-1: Product: CDC Virtual ComPort
-[  603.552158] usb 7-1: Manufacturer: BLIOT
-[  603.552162] usb 7-1: SerialNumber: 000000020000
-[  603.578400] cdc_acm 7-1:1.0: ttyACM0: USB ACM device
-```
-
-使用破烂闭源工具烧录：
-
-```
-./tools/bflb_flash_tool/bflb_mcu_tool --chipname=bl702 --port /dev/ttyACM0 --xtal=32M --firmware=out/app/usb2uartjtag/usb2uartjtag_bl702.bin
-```
-
-傻逼 Sipeed 的破烂东西
-
+别tm用linux,傻逼厂商
 
 # Hardware
 ## Offical Board
